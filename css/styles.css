@@ -5,6 +5,8 @@
   --accent-color: #2196f3;
   --text-color-dark-terms: #ffffff;
   --icon-color: #afb1b8;
+  --transform-durac: 250ms;
+  --transition-func: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -102,7 +104,9 @@ body {
 .nav-line {
   display: flex;
 }
-
+.nav-item {
+  position: relative;
+}
 .nav-item:not(:last-child) {
   margin-right: 50px;
 }
@@ -118,6 +122,9 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
+  transition: color;
+  transition-duration: var(--transform-durac);
+  transition-timing-function: var(--transition-func);
 }
 .menu:hover,
 .menu:focus {
@@ -139,6 +146,9 @@ body {
   letter-spacing: 0.02em;
   color: var(--primery-text-color);
   align-items: center;
+  transition-property: color, fill;
+  transition-duration: var(--transform-durac);
+  transition-timing-function: var(--transition-func);
 }
 .head-contacks:hover,
 .head-contacks:focus {
@@ -147,6 +157,15 @@ body {
 }
 .head-studio {
   color: var(--accent-color);
+}
+.head-studio::after {
+  color: #000000;
+  content: "";
+  width: 100%;
+  display: inline-block;
+  bottom: 0;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 .head-contacks-icon {
   fill: currentColor;
@@ -275,9 +294,6 @@ body {
   flex-wrap: wrap;
   gap: 30px;
 }
-
-/* .employee-photo {
-} */
 .employees-item {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -323,6 +339,9 @@ body {
   align-items: center;
   background-color: #ffffff;
   fill: var(--icon-color);
+  transition-property: fill, background-color, bordrer-radius;
+  transition-duration: var(--transform-durac);
+  transition-timing-function: var(--transition-func);
 }
 
 .employee-link:hover,
@@ -360,6 +379,9 @@ body {
   border-radius: 4px;
   justify-content: center;
   align-items: center;
+  transition-property: fill, border;
+  transition-duration: var(--transform-durac);
+  transition-timing-function: var(--transition-func);
 }
 
 .client-list-icon {
@@ -440,6 +462,9 @@ body {
   height: 44px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition-property: background-color;
+  transition-duration: var(--transform-durac);
+  transition-timing-function: var(--transition-func);
 }
 .social-link:hover,
 .social-link:focus {
